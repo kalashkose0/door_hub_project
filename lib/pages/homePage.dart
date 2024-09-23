@@ -1,4 +1,6 @@
 import 'package:fixitfast_2/pages/categoriesSeeMorePage.dart';
+import 'package:fixitfast_2/pages/grabOfferPage.dart';
+import 'package:fixitfast_2/pages/listPage.dart';
 import 'package:fixitfast_2/pages/notificationPage.dart';
 import 'package:fixitfast_2/pages/profilePage.dart';
 import 'package:fixitfast_2/uihelper.dart';
@@ -19,6 +21,26 @@ class _homePageState extends State<homePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: ((context) => homePage())),
+          );
+          break;
+        case 1:
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: ((context) => listPage())),
+          );
+          break;
+        case 2:
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: ((context) => notificationPage())),
+          );
+          break;
+      }
     });
   }
 
@@ -28,6 +50,7 @@ class _homePageState extends State<homePage> {
 //         )
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     TextEditingController searchController = TextEditingController();
 
     return Scaffold(
@@ -162,13 +185,13 @@ class _homePageState extends State<homePage> {
                         width: 10,
                       ),
                       Container(
-                        height: 150,
+                        height: 162,
                         width: 250,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 210, 245, 225),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
                             SizedBox(
                               height: 10,
@@ -189,12 +212,16 @@ class _homePageState extends State<homePage> {
                             SizedBox(
                               height: 2,
                             ),
-                            // ElevatedButton(
-                            //   onPressed: () {
-
-                            //   },
-                            //   child: const Text('Grab Offer >'),
-                            // ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => grabOfferPage()),
+                                );
+                              },
+                              child: const Text('Grab Offer >'),
+                            ),
                           ],
                         ),
                       ),
@@ -202,13 +229,13 @@ class _homePageState extends State<homePage> {
                         width: 10,
                       ),
                       Container(
-                        height: 150,
+                        height: 162,
                         width: 250,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(255, 232, 240, 179),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
                             SizedBox(
                               height: 10,
@@ -229,12 +256,16 @@ class _homePageState extends State<homePage> {
                             SizedBox(
                               height: 2,
                             ),
-                            // ElevatedButton(
-                            //   onPressed: () {
-                            //     // Handle "Grab Offer" button click here
-                            //   },
-                            //   child: const Text('Grab Offer >'),
-                            // ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => grabOfferPage()),
+                                );
+                              },
+                              child: const Text('Grab Offer >'),
+                            ),
                           ],
                         ),
                       ),
@@ -245,7 +276,7 @@ class _homePageState extends State<homePage> {
                           shape: BoxShape.rectangle,
                           color: Colors.transparent,
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
                             // Image.asset(
                             //   'assets/images/AC.png',
@@ -268,7 +299,7 @@ class _homePageState extends State<homePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                const Row(
+                Row(
                   children: [
                     SizedBox(
                       width: 10,
@@ -284,13 +315,23 @@ class _homePageState extends State<homePage> {
                     SizedBox(
                       width: 160,
                     ),
-                    Text(
-                      "See all",
-                      style: TextStyle(
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => categoriesSeeMorePage()),
+                        );
+                      },
+                      child: Text(
+                        'See all',
+                        style: TextStyle(
                           color: Colors.blueAccent,
                           fontSize: 13,
-                          decoration: TextDecoration.underline),
-                    ),
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 const SizedBox(
@@ -303,131 +344,176 @@ class _homePageState extends State<homePage> {
                       const SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 85,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 243, 190, 111),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/AC.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'AC',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      categoriesSeeMorePage()));
+                        },
+                        child: Container(
+                          height: 85,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 243, 190, 111),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/AC.png',
+                                height: 60,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'AC',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 85,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 156, 199, 248),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/pipe.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'plumber',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      categoriesSeeMorePage()));
+                        },
+                        child: Container(
+                          height: 85,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 156, 199, 248),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/pipe.png',
+                                height: 60,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'plumber',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 85,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 235, 181, 249),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/cleaning.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'Cleaning',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      categoriesSeeMorePage()));
+                        },
+                        child: Container(
+                          height: 85,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 235, 181, 249),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/cleaning.png',
+                                height: 60,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'Cleaning',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 85,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 226, 235, 127),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/shift.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'Shifting',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      categoriesSeeMorePage()));
+                        },
+                        child: Container(
+                          height: 85,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 226, 235, 127),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/shift.png',
+                                height: 60,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'Shifting',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 85,
-                        width: 70,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 244, 183, 198),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/electric.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'Electrical',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      categoriesSeeMorePage()));
+                        },
+                        child: Container(
+                          height: 85,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 244, 183, 198),
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/electric.png',
+                                height: 60,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'Electrical',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(

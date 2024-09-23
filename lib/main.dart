@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
-
+import 'package:fixitfast_2/pages/categoriesSeeMorePage.dart';
 import 'package:fixitfast_2/pages/homePage.dart';
+import 'package:fixitfast_2/pages/listPage.dart';
 import 'package:fixitfast_2/pages/notificationPage.dart';
 import 'package:fixitfast_2/pages/siginPage.dart';
 import 'package:fixitfast_2/pages/siginupPage.dart';
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
       // home: verificationpage(),
       // home: homePage(),
       // home: notificationPage(),
+      // home: categoriesSeeMorePage(),
+      // home: listPage(),
     );
   }
 }
