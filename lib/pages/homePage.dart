@@ -120,12 +120,22 @@ class _homePageState extends State<homePage> {
             ListTile(
               leading: const Icon(Icons.notifications_active_outlined),
               title: const Text('Notification'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => notificationPage()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.percent),
               title: const Text('Offers'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => grabOfferPage()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.person_3_outlined),
